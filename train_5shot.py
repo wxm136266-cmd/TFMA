@@ -10,7 +10,6 @@ import time
 from tqdm import tqdm
 import os
 from function.function import ContrastiveLoss, seed_func, convert_for_5shots, cal_accuracy_fewshot_ensemble_5shot
-from CWRU.CWRU_dataset import CWRU
 from dataloader.dataloader import FewshotDataset
 from torch.utils.data import DataLoader
 from net.proposed_model import Ensemble_Net
@@ -24,7 +23,7 @@ from scipy.ndimage import gaussian_filter
 from image_data_get import SAC_4way_image , create_set,create_set_test
 from torch.utils.tensorboard import SummaryWriter
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
-# 初始化用来收集预测标签和真实标签的列表
+
 
 
 seed_func()
