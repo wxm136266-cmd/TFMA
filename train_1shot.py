@@ -10,7 +10,6 @@ import time
 from tqdm import tqdm
 import os
 from function.function import ContrastiveLoss, seed_func, cal_accuracy_fewshot_ensemble_1shot
-from CWRU.CWRU_dataset import CWRU
 from dataloader.dataloader import FewshotDataset
 from torch.utils.data import DataLoader
 from net.proposed_model import Ensemble_Net
@@ -116,7 +115,7 @@ def train_and_test_model_ensemble(net,
                 targets = query_targets.to(device)
                 targets = targets.permute(1, 0)
                 for i in range(len(q)):
-                    m_l, m_u, scores = net(q[i], s) #得到两个预测值
+                    m_l, m_u, scores = net(q[i], s) 
                     target = targets[i].long()
                     true_label += 1 if torch.argmax(scores) == target else 0
                     loss = loss1(m_l, target) + loss2(m_u, target)
